@@ -1,6 +1,7 @@
 
 inspired from https://github.com/tiancaiamao/shen-go/blob/master/cora/eval.go
 
+
 try:
 
 ```
@@ -8,6 +9,7 @@ python -m pytrampoline.cps
 ```
 
 add an cps example
+the trampoline2 in cps come from https://coderscat.com/understanding-recursion-and-continuation-with-python/
 
 
 ```
