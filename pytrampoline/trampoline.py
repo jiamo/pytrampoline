@@ -1,6 +1,6 @@
 import functools
 from dataclasses import dataclass
-from typing import Optional, Any
+from typing import Optional, Any, Callable
 
 
 START = 0
@@ -12,13 +12,14 @@ RETURN = 3
 @dataclass
 class CTX:
     kind: int
-    result: Any
+    result: Any    # TODO ......
+    f: Callable
     args: Optional[list]
     kwargs: Optional[dict]
 
 
 def trampoline(f):
-    ctx = CTX(START, None, None, None)
+    ctx = CTX(START, None, None, None, None)
 
     @functools.wraps(f)
     def decorator(*args, **kwargs):
@@ -35,7 +36,6 @@ def trampoline(f):
 
         result = None
         while ctx.kind != RETURN:
-
             args = ctx.args
             kwargs = ctx.kwargs
             result = f(*args, **kwargs)
@@ -47,17 +47,3 @@ def trampoline(f):
         return result
 
     return decorator
-
-
-def fib2(n):
-    @trampoline     # it is too slow
-    def fib_helper(n, a, b): # there is too acc
-        if n == 1:
-            return a
-        return fib_helper(n-1, b, a+b)
-
-    return fib_helper(n, 1, 1)
-
-
-if __name__ == "__main__":
-    print(fib2(1000))

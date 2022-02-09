@@ -1,16 +1,17 @@
 
-inspired from https://github.com/tiancaiamao/shen-go/blob/master/cora/eval.go
+
+`trampoline.py`  inspired from  
+https://github.com/tiancaiamao/shen-go/blob/master/cora/eval.go
 
 
-try:
+the `trampoline2` in `cps.py` come from
+https://coderscat.com/understanding-recursion-and-continuation-with-python/
 
-```
-python -m pytrampoline.cps
-```
+`trampoline_mutual_recursion` come from  
+https://github.com/0x65/trampoline
 
-add an cps example
-the trampoline2 in cps come from https://coderscat.com/understanding-recursion-and-continuation-with-python/
 
+Example: 
 
 ```
 @trampoline
@@ -29,4 +30,7 @@ def fib_cps_wrapper(n):
 
 ```
 
-TODO: why this is so slow....
+TODO:  
+1. make `trampoline.py` support cache like `cpy.py`
+2. make `trampoline.py` support mutual recursion like `trampoline_mutual_recursion` 
+
