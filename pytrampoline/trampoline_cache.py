@@ -50,18 +50,8 @@ def fibonacci2(k, n):
 def kmemoized(func):
     cache = {}
 
-    def inner(k, args):
-        if args in cache:
-            return Call(k, cache[args])
-
-        def with_value(value):
-            cache[args] = value
-            return Call(k, value)
-
-        return Call(func, with_value, *args)
-
     def decorator(k, *args):
-        # print(k)
+
         def with_value(value):
             cache[args] = value
             return Call(k, value)
@@ -93,7 +83,6 @@ def fibonacci(k, n):
     return Call(fibonacci, with_a, n - 2)
 
 
-
 def fib(k, n):
     if n < 2:
         return Call(k, 1)
@@ -107,8 +96,6 @@ def fib(k, n):
     return Call(fib, with_a, n - 2)
 
 
-
-
 @kmemoized
 def fib_cps(k, n):
     if n == 0:
@@ -119,23 +106,10 @@ def fib_cps(k, n):
         return fib_cps(lambda v1: fib_cps(lambda v2: k(v1 + v2), n - 2), n - 1)
 
 
-def even(n):
-    if n == 0:
-        return True
-    else:
-        return odd(n - 1)
-
-
-# @trampoline
-def odd(n):
-    if n == 0:
-        return False
-    else:
-        return even(n - 1)
 
 def fib2(n):
     @kmemoized     # it is too slow
-    def fib_helper(n, a, b): # there is too acc
+    def fib_helper(n, a, b):  # there is too acc
         if n == 1:
             return a
         return fib_helper(n-1, b, a+b)
@@ -146,5 +120,5 @@ def fib2(n):
 if __name__ == "__main__":
 
     print(trampoline2(fibonacci2(lambda x: x, 1000)))
-    print(fibonacci(lambda x: x, 1000))
+    print(fibonacci(lambda x: x, 300))
     # print(fib_cps(lambda x: x, 5))
