@@ -5,7 +5,7 @@ https://github.com/tiancaiamao/shen-go/blob/master/cora/eval.go
 
 
 the `trampoline2` in `cps.py` come from
-https://coderscat.com/understanding-recursion-and-continuation-with-python/
+https://davywybiral.blogspot.com/2008/11/trampolining-for-recursion.html
 
 `trampoline_mutual_recursion` come from  
 https://github.com/0x65/trampoline
