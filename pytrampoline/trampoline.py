@@ -27,7 +27,6 @@ def trampoline(f):
             ctx.args = args
             ctx.kwargs = kwargs
             ctx.kind = CONTINUE
-            print(args)
             return
         elif ctx.kind == START:
             ctx.args = args
@@ -41,7 +40,6 @@ def trampoline(f):
             kwargs = ctx.kwargs
             # key = tuple(args) + tuple(kwargs)
             result = f(*args, **kwargs)
-            print(result)
             # the result continue is call f again?
             if ctx.kind == CONTINUE_END:
                 ctx.kind = RETURN

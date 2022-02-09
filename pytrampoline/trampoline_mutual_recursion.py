@@ -1,3 +1,6 @@
+# https://matthewkrump.com/2017-05-25-trampoline/
+
+
 def even(n):
     if n == 0:
         return True
