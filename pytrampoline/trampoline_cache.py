@@ -53,17 +53,21 @@ def fibonacci2(k, n):
 
 all_result = []
 cache_set = set()
+cache = {}
 
 
 # @lru_cache
 def apply(k, *args):
     # how to debug: we need add lru cache
-    # key = encode(*args)
+    key = encode(k, *args)
     # print(k, args)
+    if key in cache:
+        return cache[key]
     result = k(*args)
     # result_key = encode(*result)
     # cache_set.add((key, result_key))
     # all_result.append((key, result_key))
+    cache[key] = result
     return result
 
 
