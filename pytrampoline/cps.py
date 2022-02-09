@@ -65,7 +65,9 @@ def trampoline2(f, *args):
 
 
 if __name__ == "__main__":
-    print(fib(100))
-    print(fib_tail(10000))
-    print(trampoline2(fib_cps2, 25, lambda i:i))  # 25 was too slow
-    print(fib_cps_wrapper(25))
+    # print(fib(100))
+    # print(fib_tail(10000))
+    # print(trampoline2(fib_cps2, 25, lambda i:i))  # 25 was too slow
+    # print(fib_cps_wrapper(25))
+    # print(fib(10))
+    print(fib_cps_wrapper(5))
