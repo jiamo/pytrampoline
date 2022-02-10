@@ -4,7 +4,7 @@
 https://github.com/tiancaiamao/shen-go/blob/master/cora/eval.go
 
 
-the `trampoline2` in `cps.py` come from
+the `trampoline2` in `trampoline_cache.py` come from
 https://davywybiral.blogspot.com/2008/11/trampolining-for-recursion.html
 
 `trampoline_mutual_recursion` come from  
@@ -31,6 +31,6 @@ def fib_cps_wrapper(n):
 ```
 
 TODO:  
-1. make `trampoline.py` support cache like `cpy.py`
+1. make `trampoline.py` support cache like `trampoline_cache.py`
 2. make `trampoline.py` support mutual recursion like `trampoline_mutual_recursion` 
 
